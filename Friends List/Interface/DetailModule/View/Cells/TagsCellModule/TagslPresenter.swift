@@ -9,21 +9,18 @@
 import UIKit
 
 protocol TagsPresenterProtocol: class {
-    func getTags()
+    func setTags(tags: [String]?)
 }
 
 class TagsPresenter {
     weak var view: TagsViewProtocol?
-    var tags: [String]?
-    init(view: TagsViewProtocol, tags: [String]?) {
+    init(view: TagsViewProtocol) {
         self.view = view
-        self.tags = tags
     }
 }
 
 extension TagsPresenter: TagsPresenterProtocol {
-    func getTags() {
-        view?.updateViewWithTags(tags: self.tags)
+    func setTags(tags: [String]?) {
+        view?.updateViewWithTags(tags: tags)
     }
 }
-

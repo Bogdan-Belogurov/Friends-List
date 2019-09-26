@@ -47,11 +47,7 @@ class TagsCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         setupViews()
-    }
-    
-    func configure(tags: [String]) {
-        TagsBuilder.build(tags: tags, tagsCollectionViewCell: self)
-        presenter?.getTags()
+        TagsBuilder.build(tagsCollectionViewCell: self)
     }
     
     private var isActive: Bool = false

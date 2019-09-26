@@ -10,6 +10,7 @@ import UIKit
 
 protocol DetailPresenterProtocol: class {
     var router: DetailRouterProtocol? { get set }
+    var tagsPresenter: TagsPresenterProtocol? { get set }
     func viewDidLoad()
     func getFriend(id: Int) -> IFriend?
     func showDetail(with friend: IFriend?)
@@ -19,6 +20,7 @@ protocol DetailPresenterProtocol: class {
     func formatedDate(_ date: String) -> String?
     func formatedCoordinate(latitude: Double?, longitude: Double?) -> String?
     func openCoordinateInMap(latitude: Double?, longitude: Double?)
+    func setTags(tags: [String]?)
 }
 
 class DetailPresenter {
@@ -26,6 +28,7 @@ class DetailPresenter {
     var interactor: DetailInteractorProtocol?
     var router: DetailRouterProtocol?
     var friend: IFriend?
+    var tagsPresenter: TagsPresenterProtocol?
     init(view: DetailViewProtocol, interactor: DetailInteractorProtocol, router: DetailRouterProtocol, friend: IFriend?) {
         self.view = view
         self.interactor = interactor
@@ -43,18 +46,6 @@ extension DetailPresenter: DetailPresenterProtocol {
         return interactor?.friend(with: Int16(id))
     }
     
-    func showDetail(with friend: IFriend?) {
-        router?.showDetailViewController(friend: friend, service: self.interactor?.friendService)
-    }
-    
-    func showMailView(email: String) {
-        router?.showMailView(email: email)
-    }
-    
-    func makeCall(number: String) {
-        router?.makeCall(number: number)
-    }
-    
     func formatedBalance(_ balance: String) -> String? {
         return interactor?.formatedBalance(balance)
     }
@@ -67,7 +58,23 @@ extension DetailPresenter: DetailPresenterProtocol {
         return interactor?.formatedCoordinate(latitude: latitude, longitude: longitude)
     }
     
+    func showDetail(with friend: IFriend?) {
+        router?.showDetailViewController(friend: friend, service: self.interactor?.friendService)
+    }
+    
+    func showMailView(email: String) {
+        router?.showMailView(email: email)
+    }
+    
+    func makeCall(number: String) {
+        router?.makeCall(number: number)
+    }
+    
     func openCoordinateInMap(latitude: Double?, longitude: Double?) {
         router?.openCoordinateInMap(latitude: latitude, longitude: longitude)
+    }
+    
+    func setTags(tags: [String]?) {
+        tagsPresenter?.setTags(tags: tags)
     }
 }

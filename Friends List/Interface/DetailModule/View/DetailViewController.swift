@@ -165,7 +165,8 @@ extension DetailViewController: UITableViewDataSource {
         
         if indexPath.section == 3 {
             guard let tagsCell = tableView.dequeueReusableCell(withIdentifier: tagsCellId, for: indexPath) as? TagsCell, let tags = friend?.tags else { return UITableViewCell()}
-            tagsCell.configure(tags: tags)
+            presenter?.tagsPresenter = tagsCell.presenter
+            presenter?.setTags(tags: tags)
             tagsCell.selectionStyle = .none
             return tagsCell
         }

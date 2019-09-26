@@ -9,8 +9,8 @@
 import UIKit
 
 class TagsBuilder {
-    static func build(tags: [String]?, tagsCollectionViewCell: TagsCell) {
-        let presenter = TagsPresenter(view: tagsCollectionViewCell, tags: tags)
+    static func build(tagsCollectionViewCell: TagsCell) {
+        let presenter = TagsPresenter(view: tagsCollectionViewCell)
         tagsCollectionViewCell.presenter = presenter
     }
 }

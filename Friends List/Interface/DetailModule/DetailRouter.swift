@@ -25,6 +25,7 @@ class DetailRouter {
 }
 
 extension DetailRouter: DetailRouterProtocol {
+    
     func showDetailViewController(friend: IFriend?, service: IFriendsService?) {
         let detailViewController = DetailBuilder.build(friend: friend, service: service)
         self.detailViewController?.navigationController?.pushViewController(detailViewController, animated: true)
