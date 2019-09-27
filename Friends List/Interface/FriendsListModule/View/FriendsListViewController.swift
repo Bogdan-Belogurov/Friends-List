@@ -16,12 +16,12 @@ protocol FriendsListViewProtocol: class {
 
 class FriendsListViewController: BaseViewController {
     
-    let refreshControl: UIRefreshControl = {
+    lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         return refreshControl
     }()
     
-    let tableView: UITableView = {
+    lazy var tableView: UITableView = {
         let view = UITableView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(white: 0.95, alpha: 1)

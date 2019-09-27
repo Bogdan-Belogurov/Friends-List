@@ -22,7 +22,7 @@ class DetailViewController: BaseViewController {
     var presenter: DetailPresenterProtocol?
     let titleArray = ["Age", "Company", "Email", "Phone", "Adress", "About", "Registered", "Latitude/Longitude", "Balance"]
     
-    let tableView: UITableView = {
+    lazy var tableView: UITableView = {
         let view = UITableView(frame: .zero, style: .plain)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view

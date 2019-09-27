@@ -19,7 +19,7 @@ class EyeColorCell: UITableViewCell {
         setupViews()
     }
     
-    private let titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Eye Color"
         label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
@@ -28,7 +28,7 @@ class EyeColorCell: UITableViewCell {
         return label
     }()
     
-    private let eyeColorView: UIView = {
+    private lazy var eyeColorView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .red

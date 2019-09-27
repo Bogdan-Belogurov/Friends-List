@@ -19,7 +19,7 @@ class FavoriteFruitCell: UITableViewCell {
         setupViews()
     }
     
-    private let titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Favorite Fruit"
         label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
@@ -28,9 +28,9 @@ class FavoriteFruitCell: UITableViewCell {
         return label
     }()
     
-    private let descriptionLabel: UILabel = {
+    private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Simple description Simple descriptionSimple descriptionSimple descriptionSimple descriptionSimple descriptionSimple descriptionSimple descriptionSimple descriptionSimple descriptionSimple descriptionSimple descriptionSimple descriptionSimple description"
+        label.text = "Simple description"
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false

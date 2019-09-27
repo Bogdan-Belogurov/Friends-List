@@ -19,7 +19,7 @@ class FriendsCell: UITableViewCell {
         setupViews()
     }
     
-    private let nameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Simple name"
         label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
@@ -28,7 +28,7 @@ class FriendsCell: UITableViewCell {
         return label
     }()
     
-    private let emailLabel: UILabel = {
+    private lazy var emailLabel: UILabel = {
         let label = UILabel()
         label.text = "Simple email"
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
@@ -39,7 +39,7 @@ class FriendsCell: UITableViewCell {
     
     var isActive: Bool = false
     
-    private let activeView: UIView = {
+    private lazy var activeView: UIView = {
         let view = UIView(frame: .zero)
         view.backgroundColor = .green
         view.translatesAutoresizingMaskIntoConstraints = false

@@ -16,7 +16,7 @@ class TagsCell: UITableViewCell {
     fileprivate let cellId = "tagCellId"
     var presenter: TagsPresenterProtocol?
     var tags: [String]?
-    let collectionView: UICollectionView = {
+    private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.itemSize = UICollectionViewFlowLayout.automaticSize
@@ -29,7 +29,7 @@ class TagsCell: UITableViewCell {
         return view
     }()
     
-    let titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Tags:"
         label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
@@ -69,9 +69,6 @@ class TagsCell: UITableViewCell {
         collectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
     }
-}
-
-extension TagsCell: UICollectionViewDelegate {
 }
 
 extension TagsCell: UICollectionViewDataSource {

@@ -21,7 +21,7 @@ class TagCell: UICollectionViewCell {
         layer.addShadow(location: .center)
     }
     
-    private let tagLabel: UILabel = {
+    private lazy var tagLabel: UILabel = {
         let label = UILabel()
         label.text = "Simple tag"
         label.font = UIFont.boldSystemFont(ofSize: 16)
