@@ -9,7 +9,6 @@
 import Foundation
 
 protocol FriendsListPresenterProtocol: class {
-    var router: FriendsListRouterProtocol? { get set }
     func getFriends()
     func friends() -> [IFriend]?
     func showDetail(with friend: IFriend?)
